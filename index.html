@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On the Matter of the Split — coachkayvon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#10221c; --green-deep:#0b1813; --green-line:#1d3a30; --green-line2:#2f4f43;
+    --cream:#f3efe5; --cream-soft:#e8e2d4; --cream-line:#d8d0bd;
+    --brass:#c2a878; --brass-deep:#a98f5e; --brass-ink:#5e4d28;
+    --muted:#9db3a8; --muted2:#bccabf; --cream-muted:#6f7d6c;
+    --serif:'Cormorant Garamond',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--green);color:var(--cream);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+  .page{max-width:1080px;margin:0 auto}
+  .eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--brass)}
+  .serif{font-family:var(--serif)}
+  input[type=range]{-webkit-appearance:none;appearance:none;height:3px;background:var(--green-line2);outline:none;border-radius:2px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--brass);cursor:pointer;border:3px solid currentColor}
+  input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--brass);cursor:pointer;border:none}
+
+  /* HERO */
+  .hero{padding:54px 56px;display:grid;grid-template-columns:1fr 170px;gap:36px}
+  .hero .logo{font-family:var(--serif);font-size:20px;letter-spacing:3px;color:var(--cream-soft);margin-bottom:60px}
+  .hero .eyebrow{display:block;margin-bottom:24px}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(44px,6vw,64px);line-height:1.02;letter-spacing:-.3px;color:#fffdf8}
+  h1 .it{color:#d4ba88;font-style:italic;font-weight:500}
+  .rule{width:54px;height:1px;background:var(--brass);margin:30px 0}
+  .lede{font-size:16px;line-height:1.8;color:#cdd6cd;max-width:460px}
+  .rail{border-left:1px solid var(--green-line);padding-left:26px;display:flex;flex-direction:column;justify-content:flex-end;gap:24px}
+  .rail .k{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+  .rail .v{font-family:var(--serif);font-size:20px;color:var(--cream-soft);margin-top:3px}
+
+  /* STAT STRIP */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--green-deep);border-top:1px solid var(--green-line)}
+  .stat{padding:24px 30px;border-right:1px solid var(--green-line)}
+  .stat:last-child{border-right:none}
+  .stat .n{font-family:var(--serif);font-size:32px;color:var(--cream)}
+  .stat.accent .n{color:var(--brass)}
+  .stat .l{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+  /* LEDGER : cream inverted */
+  .ledger{background:var(--cream);color:var(--green);padding:54px 56px;color-scheme:light}
+  .ledger .top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px}
+  .ledger .eyebrow{color:var(--brass-deep);display:block;margin-bottom:12px}
+  .ledger h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.5vw,42px);line-height:1;color:var(--green)}
+  .ledger .stake{font-family:var(--serif);font-size:32px;color:var(--brass-deep)}
+  .lines{border-top:1px solid var(--cream-line)}
+  .line{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:20px;padding:24px 0;border-bottom:1px solid var(--cream-line)}
+  .line .who{font-family:var(--serif);font-size:27px;color:var(--green)}
+  .line .desc{font-size:12.5px;color:var(--cream-muted);margin-top:1px}
+  .line .pct{font-family:var(--serif);font-size:28px;text-align:right;min-width:70px;color:var(--cream-muted)}
+  .line .amt{font-family:var(--serif);font-size:28px;text-align:right;min-width:110px;color:var(--green)}
+  .ledger .ctrl{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:26px 0 20px;color:var(--brass-deep)}
+  .ledger .ctrl label{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--cream-muted);min-width:90px}
+  .ledger .ctrl input{flex:1;min-width:180px;background:var(--cream-line)}
+  .ledger .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid var(--cream-line);padding-top:22px}
+  .ledger .verdict{font-family:var(--serif);font-style:italic;font-size:19px;color:#3c4a3c}
+  .ledger .verdict b{color:var(--brass-deep);font-style:normal;font-weight:500}
+  .review{font-family:var(--sans);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;background:var(--green);color:var(--cream);border:none;padding:14px 26px;border-radius:2px;cursor:pointer;transition:opacity .2s;white-space:nowrap}
+  .review:hover{opacity:.88}
+
+  /* COMPARISON : asymmetric */
+  .compare{padding:54px 56px;display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:center}
+  .compare .head .eyebrow{display:block;margin-bottom:14px}
+  .compare .head h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.05;color:var(--cream)}
+  .compare .head p{font-size:14px;color:var(--muted);margin-top:14px;line-height:1.7}
+  .bar{display:grid;grid-template-columns:210px 1fr 60px;align-items:center;gap:22px;padding:15px 0;border-bottom:1px solid var(--green-line)}
+  .bar:last-child{border-bottom:none}
+  .bar .nm{font-size:14.5px;color:var(--muted2)}
+  .bar .track{height:5px;background:var(--green-deep);border-radius:3px;overflow:hidden}
+  .bar .fill{height:100%;background:var(--muted);border-radius:3px}
+  .bar .v{font-family:var(--serif);font-size:21px;text-align:right;color:var(--cream)}
+  .bar.bad .nm{color:var(--cream)}
+  .bar.bad .fill{background:var(--brass)}
+  .bar.bad .v{color:var(--brass)}
+
+  /* THE CASE : numbered brief */
+  .case-sec{background:var(--green-deep);padding:54px 56px;border-top:1px solid var(--green-line)}
+  .case-sec .head{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:end;margin-bottom:40px}
+  .case-sec .eyebrow{display:block;margin-bottom:14px}
+  .case-sec h2{font-family:var(--serif);font-weight:500;font-size:34px;color:var(--cream);line-height:1.05}
+  .case-sec .head p{font-size:14px;color:var(--muted);line-height:1.7;max-width:420px}
+  .args{border-top:1px solid var(--green-line)}
+  .arg{display:grid;grid-template-columns:84px 1fr;gap:28px;padding:30px 4px;border-bottom:1px solid var(--green-line);transition:background .2s}
+  .arg:hover{background:var(--green)}
+  .arg .rn{font-family:var(--serif);font-style:italic;font-size:42px;color:var(--brass);line-height:.9}
+  .arg h3{font-family:var(--serif);font-weight:500;font-size:25px;color:var(--cream);margin-bottom:9px;line-height:1.15}
+  .arg p{font-size:15px;color:var(--muted2);line-height:1.75;max-width:660px}
+  .arg p em{font-style:italic;color:var(--brass);font-weight:400}
+
+  /* PULL QUOTE : full bleed brass */
+  .pull{background:var(--brass);color:var(--green);padding:64px 56px;text-align:center}
+  .pull blockquote{font-family:var(--serif);font-size:clamp(26px,3.6vw,38px);line-height:1.3;max-width:720px;margin:0 auto;font-weight:400}
+  .pull blockquote .it{font-style:italic}
+  .pull .attr{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--brass-ink);margin-top:26px}
+
+  /* FOOTER */
+  footer{padding:56px;text-align:center}
+  footer .fk{font-family:var(--serif);font-style:italic;font-size:clamp(28px,4vw,36px);color:var(--cream)}
+  footer p{color:var(--muted2);max-width:460px;margin:20px auto 0;font-size:14.5px}
+  footer .sig{margin-top:26px;font-size:13px;letter-spacing:1px}
+  footer .sig a{color:var(--brass);text-decoration:none;border-bottom:1px solid var(--green-line2);padding-bottom:2px}
+
+  @media(max-width:760px){
+    .hero{grid-template-columns:1fr;padding:40px 28px}
+    .rail{border-left:none;border-top:1px solid var(--green-line);padding-left:0;padding-top:24px;flex-direction:row;flex-wrap:wrap;gap:28px}
+    .ledger,.compare,.case-sec,.pull,footer{padding-left:28px;padding-right:28px}
+    .stats{grid-template-columns:1fr}.stat{border-right:none;border-bottom:1px solid var(--green-line)}
+    .compare{grid-template-columns:1fr;gap:30px}
+    .bar{grid-template-columns:130px 1fr 52px;gap:14px}.bar .nm{font-size:13px}
+    .case{grid-template-columns:1fr}
+    .line{grid-template-columns:1fr auto;gap:8px}.line .amt{grid-column:1/-1;text-align:right}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="logo">K · V</div>
+      <span class="eyebrow">On the matter of the split</span>
+      <h1>Thirty for the man<br>who does the work.<br><span class="it">Seventy for the tool.</span></h1>
+      <div class="rule"></div>
+      <p class="lede">I bring the client. I build the site. I carry the relationship and the risk. A quiet argument, plainly laid, that the numbers face the wrong way.</p>
+    </div>
+    <div class="rail">
+      <div><div class="k">Author</div><div class="v">@coachkayvon</div></div>
+      <div><div class="k">Built in</div><div class="v">one sitting</div></div>
+      <div><div class="k">Filed</div><div class="v">No. 070</div></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat"><div class="n">90%</div><div class="l">the work, mine</div></div>
+    <div class="stat"><div class="n">2.9%</div><div class="l">what Stripe takes</div></div>
+    <div class="stat accent"><div class="n">70%</div><div class="l">what the tool asks</div></div>
+  </section>
+
+  <!-- LEDGER -->
+  <section class="ledger">
+    <div class="top">
+      <div>
+        <span class="eyebrow">The Ledger</span>
+        <h2>Let the figures speak.</h2>
+      </div>
+      <div class="stake" id="stakeVal">$600</div>
+    </div>
+    <div class="lines">
+      <div class="line" id="lineYou">
+        <div><div class="who">You</div><div class="desc">Brought client · built site · support · carries risk</div></div>
+        <div class="pct" id="youPct">30%</div>
+        <div class="amt" id="youAmt">$180</div>
+      </div>
+      <div class="line" id="lineHim">
+        <div><div class="who">The Platform</div><div class="desc">Provided the tools · no client contact · no exposure</div></div>
+        <div class="pct" id="himPct">70%</div>
+        <div class="amt" id="himAmt">$420</div>
+      </div>
+    </div>
+    <div class="ctrl">
+      <label>The project</label>
+      <input id="proj" type="range" min="200" max="5000" step="50" value="600">
+    </div>
+    <div class="foot">
+      <span class="verdict" id="verdict">As it stands, you keep <b>thirty</b> for ninety percent of the work.</span>
+      <button class="review" id="review">Call for review</button>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="compare">
+    <div class="head">
+      <span class="eyebrow">By his own analogy</span>
+      <h2>The realtor keeps a sliver.</h2>
+      <p>He reached for real estate, so let us use it. The one who finds the buyer keeps three to six percent. The builder keeps the rest.</p>
+    </div>
+    <div class="bars">
+      <div class="bar"><span class="nm">Realtor — finds the buyer, closes</span><div class="track"><div class="fill" style="width:6%"></div></div><span class="v">3–6%</span></div>
+      <div class="bar"><span class="nm">Builder — foundation, frame, wiring</span><div class="track"><div class="fill" style="width:95%"></div></div><span class="v">94–97%</span></div>
+      <div class="bar bad"><span class="nm">The platform, the tool, still wants</span><div class="track"><div class="fill" style="width:70%"></div></div><span class="v">70%</span></div>
+    </div>
+  </section>
+
+  <!-- THE CASE -->
+  <section class="case-sec">
+    <div class="head">
+      <div>
+        <span class="eyebrow">The Case</span>
+        <h2>Five points, plainly put.</h2>
+      </div>
+      <p>Set down in order, the way I would lay it out across the table. Read them straight through.</p>
+    </div>
+    <div class="args">
+      <div class="arg"><div class="rn">i.</div><div><h3>I am not sales</h3><p>Sales people make an intro and walk away. I brought the client, built the site, managed the relationship, and handled support. <em>That is not a commission situation.</em></p></div></div>
+      <div class="arg"><div class="rn">ii.</div><div><h3>The foundation was not finished</h3><p>He says the platform poured the foundation, framed it, wired it, and handed over a finished working business. It had gaps. I waited on his changes to do basic things and filed bug reports while I built. The fixes were features BE1st needed anyway, that any future developer benefits from. <em>A foundation you repair after building starts was never finished, and that is beta testing, not a service to me.</em></p></div></div>
+      <div class="arg"><div class="rn">iii.</div><div><h3>I carry all the risk</h3><p>One hundred percent of the client risk lands on me. If the client is unhappy, wants revisions, or the relationship goes sideways, that is mine to handle. <em>He has zero client exposure.</em></p></div></div>
+      <div class="arg"><div class="rn">iv.</div><div><h3>The house does not sell itself</h3><p>A finished house with no buyer is worth zero. I found the buyer, walked them through the door, and closed the deal. Without me there is no revenue to divide at all. <em>The platform alone generated zero dollars.</em></p></div></div>
+      <div class="arg"><div class="rn">v.</div><div><h3>His own analogy sinks it</h3><p>Realtors keep three to six percent of the sale and the builder keeps the rest. If I am the realtor in his story, then the platform keeps three to six, not seventy. <em>He flipped every role to make it work, and it still did not hold.</em></p></div></div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="pull">
+    <blockquote>You are the general contractor. The platform is a vendor you use. <span class="it">Vendors do not take the majority cut.</span></blockquote>
+    <div class="attr">— the plain truth of it</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="fk">Game, set, and the point made.</div>
+    <p>You asked whether I could build a site, fast. Here is the answer, the figures and all, in a single sitting. The thirty belongs on my side.</p>
+    <div class="sig">— <a href="https://instagram.com/coachkayvon">@coachkayvon</a></div>
+  </footer>
+
+</div>
+
+<script>
+  var proj=document.getElementById('proj'), flipped=false;
+  function money(n){return '$'+Math.round(n).toLocaleString();}
+  function render(){
+    var v=+proj.value, yp=flipped?70:30, hp=flipped?30:70;
+    document.getElementById('stakeVal').textContent=money(v);
+    document.getElementById('youPct').textContent=yp+'%';
+    document.getElementById('himPct').textContent=hp+'%';
+    document.getElementById('youAmt').textContent=money(v*yp/100);
+    document.getElementById('himAmt').textContent=money(v*hp/100);
+    document.getElementById('youPct').style.color=flipped?'#a98f5e':'#6f7d6c';
+    document.getElementById('himPct').style.color=flipped?'#6f7d6c':'#a98f5e';
+    document.getElementById('verdict').innerHTML = flipped
+      ? 'Reviewed and overturned. You keep <b>seventy</b>, as the work demands.'
+      : 'As it stands, you keep <b>thirty</b> for ninety percent of the work.';
+  }
+  proj.addEventListener('input', render);
+  document.getElementById('review').addEventListener('click', function(){
+    flipped=!flipped;
+    this.textContent = flipped ? 'Let it stand' : 'Call for review';
+    render();
+  });
+  render();
+</script>
+</body>
+</html>
